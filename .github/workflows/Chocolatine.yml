@@ -23,7 +23,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        ssh-key: ${{ GIT_SSH_PRIVATE_KEY }}
+        ssh-key: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
     
     - name: Build code
       run: |
