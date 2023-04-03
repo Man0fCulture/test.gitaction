@@ -22,14 +22,13 @@ jobs:
     
     steps:
     
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt install curl
-        curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
-        sudo add-apt-repository "deb https://deb.nodesource.com/node_16.x $(lsb_release -sc) main"
-        sudo apt update
-        sudo apt install nodejs
+    - name: Setup Node.js 16.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+        
+    - name: Install Dependencies
+      run: npm install
         
     - name: Checkout code
       uses: actions/checkout@v2
