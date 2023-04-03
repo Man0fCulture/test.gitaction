@@ -15,8 +15,11 @@ on:
 jobs:
 
   job1:
+  
     runs-on: ubuntu-latest
+    
     steps:
+    
     - name: Install dependencies
       run: |
         sudo apt-get update
