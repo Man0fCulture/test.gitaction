@@ -1,7 +1,7 @@
 name: chocolatine
 
 env:
-  MIRROR_URL: https://github.com/EpitechPromo2027/B-DOP-200-PAR-2-1-chocolatine-suleman.maqsood
+  MIRROR_URL: git@github.com:Man0fCulture/test.gitaction.git
   EXECUTABLES: libmy.a
   
 on:
@@ -11,9 +11,6 @@ on:
   pull_request:
     branches:
     - '*'
-
-  workflow_dispatch:
-
 jobs:
 
   job1:
