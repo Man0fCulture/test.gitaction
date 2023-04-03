@@ -1,0 +1,40 @@
+name: chocolatine
+
+env:
+  MIRROR_URL: git@github.com:Man0fCulture/test.gitaction.git
+  EXECUTABLES: libmy.a
+  
+on:
+  push:
+    branches:
+    - '!ga-ignore-*'
+  pull_request:
+    branches:
+    - '*'
+    
+  workflow_dispatch:
+    
+jobs:
+
+  job1:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+        
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Build code
+      run: |
+        make
+      
+    - name: Verify build
+      run: |
+        if [ $? -eq 0 ]; then
+          echo "Build succeeded!"
+        else
+          echo "Build failed!"
+          exit 1
+        fi
+
