@@ -1,7 +1,7 @@
 name: chocolatine
 
 env:
-  MIRROR_URL: git@github.com:Man0fCulture/test.gitaction.git
+  MIRROR_URL: git@github.com:Man0fCulture/Test_action.git
   EXECUTABLES: libmy.a
   
 on:
