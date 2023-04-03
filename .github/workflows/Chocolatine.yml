@@ -20,27 +20,26 @@ jobs:
     
     steps:
     
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential
-          sudo apt-get install -y nodejs
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y nodejs
         
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ env.MIRROR_URL }}
-          ssh-key: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ env.MIRROR_URL }}
+        ssh-key: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
     
-      - name: Build code
-        run: |
-          make
+    - name: Build code
+      run: |
+        make
       
-      - name: Verify build
-        run: |
-          if [ $? -eq 0 ]; then
-            echo "Build succeeded!"
-          else
-            echo "Build failed!"
-            exit 1
-          fi
+    - name: Verify build
+      run: |
+        if [ $? -eq 0 ]; then
+           echo "Build succeeded!"
+         else
+           echo "Build failed!"
+           exit 1
+         fi
