@@ -10,28 +10,6 @@
 
 static int check_setenv(char **env, env_t *en)
 {
-    if (en->fon[0][0] == 's' && en->fon[0][1] == 'e' && en->fon[0][2] == 't' &&
-    en->fon[0][3] == 'e' && en->fon[0][4] == 'n' && en->fon[0][5] == 'v') {
-        if (en->fon[1] == NULL) {
-            print_env(en);
-            write(1, "$> ", 3);
-            return 0;
-        }
-        if (en->fon[2] == NULL) {
-            set_env_void(en);
-            write(1, "$> ", 3);
-            return 0;
-        }
-        if (en->fon[3] != NULL) {
-            my_putstr("setenv: Too many arguments.\n");
-            write(1, "$> ", 3);
-            return 0;
-        }
-        set_env(en);
-        write(1, "$> ", 3);
-        free_fon(en);
-        return 0;
-    }
     return 1;
 }
 
